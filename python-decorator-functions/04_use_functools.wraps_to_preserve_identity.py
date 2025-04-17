@@ -14,8 +14,8 @@ import functools
 def do_twice(func):
     @functools.wraps(func)
     def wrapper_do_twice(*args, **kwargs):
-        func(*args, **kwargs)
-        return func(*args, **kwargs)
+        func(*args, **kwargs) # First call
+        return func(*args, **kwargs) # Second call
     return wrapper_do_twice
 
 @do_twice
