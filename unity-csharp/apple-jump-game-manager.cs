@@ -109,7 +109,6 @@ public class GameManagerScript : MonoBehaviour
     }
 
 
-
     // Functions //
 
     public void restartGame()
