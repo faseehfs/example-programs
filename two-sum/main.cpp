@@ -2,7 +2,6 @@
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
 // You can return the answer in any order.
 
-
 // Example 1:
 
 // Input: nums = [2,7,11,15], target = 9
@@ -19,53 +18,62 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
-#include<iostream>
-#include<string>
-#include<vector>
-#include<unordered_map>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <unordered_map>
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    vector<int> twoSum(vector<int>& nums, int target) {
+    vector<int> twoSum(vector<int> &nums, int target)
+    {
         unordered_map<int, int> numMap; // To store numbers and their indices
         vector<int> result;
 
-        for (int i = 0; i < nums.size(); i++) {
+        for (int i = 0; i < nums.size(); i++)
+        {
             int complement = target - nums[i]; // Calculate the complement needed to reach the target
-            
+
             // Check if the complement exists in the map
-            if (numMap.find(complement) != numMap.end()) {
+            if (numMap.find(complement) != numMap.end())
+            {
                 result.push_back(numMap[complement]); // Push the index of the complement
-                result.push_back(i); // Push the current index
-                return result; // Return the result as soon as we find the answer
+                result.push_back(i);                  // Push the current index
+                return result;                        // Return the result as soon as we find the answer
             }
-            
+
             // Store the number and its index in the map
             numMap[nums[i]] = i;
         }
-        
+
         return result; // Return empty if no solution is found (though problem states one solution)
     }
 };
 
-int main() {
+int main()
+{
     cout << "Enter the integer vector separated by spaces: ";
     string input;
     getline(cin, input);
     vector<int> inputVector;
     string temp;
-    for (char character: input) {
-        if (character != ' ') {
+    for (char character : input)
+    {
+        if (character != ' ')
+        {
             temp += character;
         }
-        else {
+        else
+        {
             inputVector.push_back(stoi(temp));
             temp.clear();
         }
     }
-    if (!temp.empty()) {
+    if (!temp.empty())
+    {
         inputVector.push_back(stoi(temp));
     }
     cout << "Enter the target: ";

@@ -1,8 +1,8 @@
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 
-
-int main() {
+int main()
+{
     int n;
     std::cout << "How many numbers of the Fibonacci sequence do you want?\n";
     std::cin >> n;
@@ -11,21 +11,20 @@ int main() {
 
     std::vector<int> sequence = {0, 1};
 
-    if (n > 0) {
+    if (n > 0)
+    {
         std::cout << "0\n";
     }
 
     int i = 1;
-    while (i < n) {
+    while (i < n)
+    {
         int sequenceSize = sequence.size();
-        int numberToOutput = sequence[sequenceSize - 1] + sequence[ sequenceSize - 2];
+        int numberToOutput = sequence[sequenceSize - 1] + sequence[sequenceSize - 2];
         sequence.push_back(numberToOutput);
         std::cout << numberToOutput << std::endl;
         ++i;
     }
-
-
-
 
     // For testing:
     std::cin >> n;

@@ -14,11 +14,45 @@ def partition(string: str) -> list[str]:
 
 def to_words(string: str) -> str:
     """Converts a 3-character numeric string to its English word representation. Assumes all characters are digits and handles numbers from 000 to 999. Returns an empty string on 000."""
-    output = ""
 
-    numbers = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
-    numbers_sec = ["", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
-    numbers_of_one = ["", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
+    numbers = [
+        "",
+        "one",
+        "two",
+        "three",
+        "four",
+        "five",
+        "six",
+        "seven",
+        "eight",
+        "nine",
+    ]
+    numbers_second_place = [
+        "",
+        "ten",
+        "twenty",
+        "thirty",
+        "forty",
+        "fifty",
+        "sixty",
+        "seventy",
+        "eighty",
+        "ninety",
+    ]
+    numbers_of_one = [
+        "",
+        "eleven",
+        "twelve",
+        "thirteen",
+        "fourteen",
+        "fifteen",
+        "sixteen",
+        "seventeen",
+        "eighteen",
+        "nineteen",
+    ]
+
+    output = ""
 
     if string[0] != "0":
         output += numbers[int(string[0])] + " hundred "
@@ -28,7 +62,7 @@ def to_words(string: str) -> str:
             output += numbers_of_one[int(string[2])] + " "
             return output
         else:
-            output += numbers_sec[int(string[1])] + " "
+            output += numbers_second_place[int(string[1])] + " "
 
     if string[2] != "0":
         output += numbers[int(string[2])] + " "
@@ -37,15 +71,40 @@ def to_words(string: str) -> str:
 
 
 SUFFIXES = [
-    "", "thousand", "million", "billion", "trillion", "quadrillion",
-    "quintillion", "sextillion", "septillion", "octillion", "nonillion",
-    "decillion", "undecillion", "duodecillion", "tredecillion",
-    "quattuordecillion", "quindecillion", "sexdecillion", "septendecillion",
-    "octodecillion", "novemdecillion", "vigintillion", "unvigintillion",
-    "duovigintillion", "trevigintillion", "quattuorvigintillion",
-    "quinvigintillion", "sexvigintillion", "septenvigintillion",
-    "octovigintillion", "novemvigintillion", "trigintillion",
-    "untrigintillion", "duotrigintillion"
+    "",
+    "thousand",
+    "million",
+    "billion",
+    "trillion",
+    "quadrillion",
+    "quintillion",
+    "sextillion",
+    "septillion",
+    "octillion",
+    "nonillion",
+    "decillion",
+    "undecillion",
+    "duodecillion",
+    "tredecillion",
+    "quattuordecillion",
+    "quindecillion",
+    "sexdecillion",
+    "septendecillion",
+    "octodecillion",
+    "novemdecillion",
+    "vigintillion",
+    "unvigintillion",
+    "duovigintillion",
+    "trevigintillion",
+    "quattuorvigintillion",
+    "quinvigintillion",
+    "sexvigintillion",
+    "septenvigintillion",
+    "octovigintillion",
+    "novemvigintillion",
+    "trigintillion",
+    "untrigintillion",
+    "duotrigintillion",
 ]
 
 while True:
