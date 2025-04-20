@@ -1,7 +1,7 @@
 import os
 
 programs_folder = "programs"
-ignored_folders = ["z-old", ".git", "__pycache__", "node_modules", ".vscode"]
+ignored_folders = ["z-trash", ".git", "__pycache__", "node_modules", ".vscode"]
 
 
 def generate_readme():
