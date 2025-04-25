@@ -1,7 +1,7 @@
 import os
 
 programs_folder = "programs"
-ignored_folders = ["z-trash", ".git", "__pycache__", "node_modules", ".vscode"]
+ignored = [".git", "__pycache__", "node_modules", ".vscode"]
 
 
 def generate_readme():
@@ -11,15 +11,12 @@ def generate_readme():
         print(f"'{programs_folder}' directory does not exist.")
         return
 
-    for folder in os.listdir(programs_folder):
-        if folder in ignored_folders:
+    for item in sorted(os.listdir(programs_folder)):
+        if item in ignored:
             continue
 
-        if not os.path.isdir(os.path.join(programs_folder, folder)):
-            continue
-
-        folder_name = folder.replace("-", " ").lower()
-        readme_content += f"- [{folder_name}](/{programs_folder}/{folder}/)\n"
+        name, _ = os.path.splitext(item.replace("-", " ").lower())
+        readme_content += f"- [{name}]({programs_folder}/{item})\n"
 
     with open("README.md", "w") as readme_file:
         readme_file.write(readme_content)
