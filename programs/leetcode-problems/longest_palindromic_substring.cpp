@@ -1,5 +1,4 @@
 // Given a string s, return the longest palindromic substring in s.
- 
 
 // Example 1:
 
@@ -11,32 +10,34 @@
 // Input: s = "cbbd"
 // Output: "bb"
 
-
-#include<iostream>
-#include<string>
-#include<unordered_map>
+#include <iostream>
+#include <string>
+#include <unordered_map>
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    string longestPalindrome(string& s) {
+    string longestPalindrome(string &s)
+    {
         int sLen = s.length();
         string sepStr;
-        for (int i = 0; i < sLen - 1; i++) {
+        for (int i = 0; i < sLen - 1; i++)
+        {
             sepStr += s[i]; // Adding the character.
-            sepStr += "#"; // Adding # between all characters.
+            sepStr += "#";  // Adding # between all characters.
         }
         sepStr += s[sLen - 1]; // Adding the last character.
-        sepStr += "#"; // Adding the last #.
+        sepStr += "#";         // Adding the last #.
 
         // 'start' and 'end' represents the current window.
         int start = 0;
-        
     }
 };
 
-int main() {
+int main()
+{
     cout << "Enter a string: ";
     string input;
     cin >> input;

@@ -1,14 +1,14 @@
 // Each node of a doubly linked list points not only to the next
 // node, but also to the previous node.
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 struct Node
 {
     int data;
-    Node* prev;
-    Node* next;
+    Node *prev;
+    Node *next;
 
     Node(int data)
     {
@@ -20,7 +20,7 @@ struct Node
 
 class DoublyLinkedList
 {
-    Node* head;
+    Node *head;
 
 public:
     DoublyLinkedList() : head(nullptr) {} // Initializer list.
@@ -28,8 +28,8 @@ public:
     void insertAtBeginning(int data)
     {
         // Create new node.
-        Node* newNode = new Node(data);
-        
+        Node *newNode = new Node(data);
+
         if (head == nullptr)
         {
             head = newNode;
@@ -43,7 +43,7 @@ public:
 
     void insertAtEnd(int data)
     {
-        Node* newNode = new Node(data);
+        Node *newNode = new Node(data);
 
         if (head == nullptr)
         {
@@ -51,7 +51,7 @@ public:
             return;
         }
 
-        Node* temp = head;
+        Node *temp = head;
         while (temp->next)
         {
             temp = temp->next;
@@ -63,7 +63,7 @@ public:
 
     void print()
     {
-        Node* temp = head;
+        Node *temp = head;
         while (temp)
         {
             cout << temp->data << " -> ";

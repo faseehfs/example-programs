@@ -1,6 +1,5 @@
 // Given a string s, find the length of the longest substring without repeating characters.
 
-
 // Example 1:
 
 // Input: s = "abcabcbb"
@@ -18,23 +17,27 @@
 // Explanation: The answer is "wke", with the length of 3.
 // Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
-#include<iostream>
-#include<string>
-#include<vector>
-#include<unordered_map>
-#include<algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <unordered_map>
+#include <algorithm>
 
 using namespace std;
 
-class Solution {
+class Solution
+{
 public:
-    int lengthOfLongestSubstring(const string& s) {
+    int lengthOfLongestSubstring(const string &s)
+    {
         unordered_map<char, int> charIndex; // Stores the last index of each character.
-        int maxLen = 0; // Maximum length of the substring.
-        int start = 0; // Start index of the current substring.
-        for (int end = 0; end < s.length(); end++) {
+        int maxLen = 0;                     // Maximum length of the substring.
+        int start = 0;                      // Start index of the current substring.
+        for (int end = 0; end < s.length(); end++)
+        {
             auto it = charIndex.find(s[end]);
-            if (it != charIndex.end() && it->second >= start) {
+            if (it != charIndex.end() && it->second >= start)
+            {
                 start = it->second + 1; // Update start.
             }
             charIndex[s[end]] = end; // Update the last index of the current character.
@@ -45,7 +48,8 @@ public:
     }
 };
 
-int main() {
+int main()
+{
     cout << "Enter a string: ";
     string s;
     cin >> s;

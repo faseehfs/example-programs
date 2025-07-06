@@ -23,21 +23,20 @@ LinkedList myLinkedList(10);  // Object with constructor argument.
 ----------------------------------------------------------------
 */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 struct Node
 {
     int data;
-    Node* next;
+    Node *next;
 };
 
 class LinkedList
 {
-    Node* head; // The accessibility of the head Node is private.
+    Node *head; // The accessibility of the head Node is private.
 
-public: // Public methods to manipulate the linked list.
-
+public:                             // Public methods to manipulate the linked list.
     LinkedList() : head(nullptr) {} // Initializer list.
 
     // Use the same code from the previous example with some adjustments.
@@ -45,7 +44,7 @@ public: // Public methods to manipulate the linked list.
 
     void insertAtBeginning(int data)
     {
-        Node* newNode = new Node;
+        Node *newNode = new Node;
         newNode->data = data;
         newNode->next = head;
         head = newNode;
@@ -53,7 +52,7 @@ public: // Public methods to manipulate the linked list.
 
     void insertAtPosition(int data, int position)
     {
-        Node* newNode = new Node;
+        Node *newNode = new Node;
         newNode->data = data;
         newNode->next = nullptr;
 
@@ -65,7 +64,7 @@ public: // Public methods to manipulate the linked list.
         }
 
         int currentPosition = 0;
-        Node* temp = head;
+        Node *temp = head;
         while (temp)
         {
             if (currentPosition == position - 1)
@@ -81,7 +80,7 @@ public: // Public methods to manipulate the linked list.
 
     void insertAtEnd(int data)
     {
-        Node* newNode = new Node;
+        Node *newNode = new Node;
         newNode->data = data;
         newNode->next = nullptr;
 
@@ -91,7 +90,7 @@ public: // Public methods to manipulate the linked list.
             return;
         }
 
-        Node* temp = head;
+        Node *temp = head;
         while (temp->next)
         {
             temp = temp->next;
@@ -101,14 +100,14 @@ public: // Public methods to manipulate the linked list.
 
     void print()
     {
-        if(head == nullptr)
+        if (head == nullptr)
         {
             cout << "The list is empty." << endl;
             return;
         }
 
-        Node* temp = head;
-        while(temp)
+        Node *temp = head;
+        while (temp)
         {
             cout << temp->data << " -> ";
             temp = temp->next;

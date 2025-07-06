@@ -79,29 +79,29 @@ classes the default is private.
      otherwise) will be invoked.
 */
 
-#include<iostream>
+#include <iostream>
 using namespace std;
 
 // Basic node structure.
 struct Node
 {
     int data;
-    Node* next;
+    Node *next;
 };
 
 // Function to add data at the beginning of the list.
-void insertAtBeginning(Node*& head, int data)
+void insertAtBeginning(Node *&head, int data)
 {
-    Node* newNode = new Node;
+    Node *newNode = new Node;
     newNode->data = data;
     newNode->next = head;
     head = newNode;
 }
 
 // Function to add data at a specified position.
-void insertAtPosition(Node*& head, int data, int position) // position starts from 0.
+void insertAtPosition(Node *&head, int data, int position) // position starts from 0.
 {
-    Node* newNode = new Node;
+    Node *newNode = new Node;
     newNode->data = data;
     newNode->next = nullptr;
 
@@ -113,7 +113,7 @@ void insertAtPosition(Node*& head, int data, int position) // position starts fr
     }
 
     int currentPosition = 0;
-    Node* temp = head;
+    Node *temp = head;
     while (temp)
     {
         if (currentPosition == position - 1)
@@ -128,9 +128,9 @@ void insertAtPosition(Node*& head, int data, int position) // position starts fr
 }
 
 // Function to add data at the end of the list.
-void insertAtEnd(Node*& head, int data)
+void insertAtEnd(Node *&head, int data)
 {
-    Node* newNode = new Node;
+    Node *newNode = new Node;
     newNode->data = data;
     newNode->next = nullptr;
 
@@ -140,7 +140,7 @@ void insertAtEnd(Node*& head, int data)
         return;
     }
 
-    Node* temp = head;
+    Node *temp = head;
     while (temp->next)
     {
         temp = temp->next;
@@ -148,16 +148,16 @@ void insertAtEnd(Node*& head, int data)
     temp->next = newNode;
 }
 
-void printList(Node*& head)
+void printList(Node *&head)
 {
-    if(head == nullptr)
+    if (head == nullptr)
     {
         cout << "The list is empty." << endl;
         return;
     }
 
-    Node* temp = head;
-    while(temp)
+    Node *temp = head;
+    while (temp)
     {
         cout << temp->data << " -> ";
         temp = temp->next;
@@ -167,7 +167,7 @@ void printList(Node*& head)
 
 int main()
 {
-    Node* head = nullptr; // Pointer to the first Node.
+    Node *head = nullptr; // Pointer to the first Node.
     insertAtBeginning(head, 2);
     insertAtBeginning(head, 1);
     insertAtEnd(head, 4);
