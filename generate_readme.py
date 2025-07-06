@@ -3,9 +3,14 @@ import os
 programs_folder = "programs"
 ignored = [".git", "__pycache__", "node_modules", ".vscode"]
 
+content_before = """# Example Programs
+
+"""
+
+content_after = """"""
 
 def generate_readme():
-    readme_content = "# Example Programs\n\n"
+    readme_content = content_before
 
     if not os.path.exists(programs_folder):
         print(f"'{programs_folder}' directory does not exist.")
@@ -15,12 +20,14 @@ def generate_readme():
         if item in ignored:
             continue
 
-        name, _ = os.path.splitext(item.replace("-", " ").lower())
+        name, _ = os.path.splitext(item.replace("-", " ").replace("_", " ").lower())
         readme_content += f"- [{name}]({programs_folder}/{item})\n"
+    
+    readme_content += content_after
 
     with open("README.md", "w") as readme_file:
         readme_file.write(readme_content)
         print("README.md generated successfully!")
 
-
-generate_readme()
+if __name__ == "__main__":
+    generate_readme()
