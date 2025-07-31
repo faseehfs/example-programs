@@ -7,7 +7,7 @@ content_before = """# Example Programs
 
 """
 
-content_after = """"""
+content_after = """- [Git Manual](git_manual.md)"""
 
 def generate_readme():
     readme_content = content_before
