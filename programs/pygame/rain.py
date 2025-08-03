@@ -14,9 +14,10 @@ class Raindrops:
         self,
         area,
         drops_per_frame=1,
-        length=20,
+        length=4,
         width=2,
         color=(255, 255, 255),
+        velocity=(-1, 10),
         tail=True,
     ):
         self.area = area
@@ -25,12 +26,16 @@ class Raindrops:
         self.width = width
         self.color = color
         self.color_step = max(color) // length
+        self.velocity = velocity
         self.drops = []
         self.tail = tail
 
     def move(self):
         for i in range(len(self.drops)):
-            self.drops[i] = (self.drops[i][0], self.drops[i][1] + 1)
+            self.drops[i] = (
+                self.drops[i][0] + self.velocity[0],
+                self.drops[i][1] + self.velocity[1],
+            )
 
     def add(self):
         for i in range(self.drops_per_frame):
@@ -42,7 +47,10 @@ class Raindrops:
                 start_pos = drop
                 color = self.color
                 while color != (0, 0, 0):
-                    end_pos = (start_pos[0], start_pos[1] - 1)
+                    end_pos = (
+                        start_pos[0] - self.velocity[0],
+                        start_pos[1] - self.velocity[1],
+                    )
                     pygame.draw.line(surface, color, start_pos, end_pos, self.width)
                     start_pos = end_pos
                     color = tuple(
@@ -61,7 +69,7 @@ clock = pygame.time.Clock()
 running = True
 
 screen_size = screen.get_size()
-raindrops = Raindrops(screen_size, 1)
+raindrops = Raindrops(screen_size, 1, color=(173, 216, 230))
 
 while running:
     for event in pygame.event.get():
