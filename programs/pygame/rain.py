@@ -14,7 +14,7 @@ class Raindrops:
         self,
         area,
         drops_per_frame=1,
-        length=10,
+        length=20,
         width=2,
         color=(255, 255, 255),
         tail=True,
@@ -45,7 +45,9 @@ class Raindrops:
                     end_pos = (start_pos[0], start_pos[1] - 1)
                     pygame.draw.line(surface, color, start_pos, end_pos, self.width)
                     start_pos = end_pos
-                    color = tuple([max(0, component - 10) for component in color])
+                    color = tuple(
+                        [max(0, component - self.color_step) for component in color]
+                    )
                 if start_pos[1] > self.area[1]:
                     print(self.drops.pop(i))
         else:
@@ -72,6 +74,6 @@ while running:
     raindrops.draw(screen)
 
     pygame.display.flip()
-    clock.tick(60)
+    clock.tick(30)
 
 pygame.quit()
