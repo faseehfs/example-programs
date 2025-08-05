@@ -1,5 +1,15 @@
 import pickle
 
+HELP = """
+push element : push an element into the stack
+pop element  : delete an element from the stack and show it
+top          : shows the topmost element
+print        : shows the whole stack
+save         : saves the stack in "stack.dat"
+load         : loads the stack from "stack.dat"
+exit         : exits the program
+"""
+
 class Stack():
     contents = []
 
@@ -30,7 +40,10 @@ test = Stack()
 
 while True:
     command = input(">>> ").lower().split()
-    if command[0] == "push" and len(command) >= 2:
+    if command[0] == "help":
+        print(HELP)
+
+    elif command[0] == "push" and len(command) >= 2:
         test.push(command[1])
 
     elif command[0] == "pop":
@@ -50,3 +63,6 @@ while True:
 
     elif command[0] == "exit":
         break
+
+    else:
+        print(f'Command "{command[0]}" is not found.')
