@@ -2,10 +2,11 @@ import pygame
 from pygame.math import Vector2
 
 class Drop():
-    def __init__(self, position: Vector2, length: float, speed: float):
+    def __init__(self, position: Vector2, speed: float=100, length: float=4, width: float=2):
         self.position = position
-        self.length = length
         self.speed = speed
+        self.length = length
+        self.width = width
     
         self.velocity = None
 
@@ -15,7 +16,8 @@ class Drop():
         pygame.draw.line(
             surface, (255, 255, 255),
             self.position,
-            self.position - self.velocity.normalize() * self.length
+            self.position - self.velocity.normalize() * self.length,
+            self.width
         )
 
 pygame.init()
@@ -24,7 +26,7 @@ clock = pygame.time.Clock()
 dt = 0
 running = True
 
-drop = Drop(Vector2(0, 0), 5, 100)
+drop = Drop(Vector2(0, 0))
 
 while running:
     for event in pygame.event.get():
