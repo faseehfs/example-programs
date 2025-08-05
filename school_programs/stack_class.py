@@ -53,7 +53,7 @@ while True:
         print(test.top())
 
     elif command[0] == "print":
-        print(", ".join(test.contents))
+        print("\n".join(test.contents))
 
     elif command[0] == "save":
         save()
