@@ -8,8 +8,7 @@ class Stack():
 
     def pop(self):
         if not self.contents:
-            print("Stack underflow.")
-            return
+            return "Stack underflow."
 
         return self.contents.pop()
 
@@ -35,7 +34,7 @@ while True:
         test.push(command[1])
 
     elif command[0] == "pop":
-        test.pop()
+        print(test.pop())
 
     elif command[0] == "top":
         print(test.top())
