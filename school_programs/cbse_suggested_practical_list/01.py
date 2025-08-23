@@ -2,6 +2,6 @@
 
 with open("README.md", "r") as f:
     line = f.readline()
-    while line:
+    while line != "":
         print("#".join(line.split()))
         line = f.readline()
