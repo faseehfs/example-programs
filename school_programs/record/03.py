@@ -1,3 +1,5 @@
+# Demonstrating the working local and global variables.
+
 def f1():
     local_var = 1
     print(local_var)

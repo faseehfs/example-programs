@@ -1,3 +1,5 @@
+# Demonstrating the working of positional and keyword parameters.
+
 def subtract(a, b):
     print(b - a)
 

@@ -1,3 +1,5 @@
+# Demonstrating the working of random module and randint() function.
+
 import random
 
 while True:

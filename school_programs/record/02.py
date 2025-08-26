@@ -1,3 +1,5 @@
+# Demonstrating the working fruitful and void functions.
+
 def fruitful_greet(name: str):
     return(f"Hello {name}!")
 

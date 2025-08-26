@@ -1,15 +1,9 @@
-def calculateWeeks():
-    try:
-        days = int(input("Enter no. of days: "))
-        weeks = days // 7
+#  Demonstrating working of default parameters.
 
-    except ValueError:
-        print("Enter integers only.")
+def simpleInterest(P=1000, R=5, T=1):
+    return P * R * T / 100
 
-    else:
-        print(f"No. of weeks in {days} days: {weeks}")
-
-    finally:
-        print("Thank you.")
-
-calculateWeeks()
+print(simpleInterest())
+print(simpleInterest(2000))
+print(simpleInterest(2000, 2))
+print(simpleInterest(2000, 2, 2))
