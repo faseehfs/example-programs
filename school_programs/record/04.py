@@ -1,7 +1,13 @@
 # Demonstrating the working of positional and keyword parameters.
 
+# Create a function and call it using positional and keyword parameters.
+
 def subtract(a, b):
-    print(b - a)
+    """
+    Subtracts a from b.
+    """
+    result = b - a
+    print(result)
 
 subtract(1, 2)
 subtract(2, 1)
