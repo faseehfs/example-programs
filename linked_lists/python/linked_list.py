@@ -12,6 +12,21 @@ def print_LL(head):
     print("None")
 
 
+def delete_node(head, node_to_delete):
+    if head == node_to_delete:
+        return head.next
+
+    current_node = head
+    while current_node.next and current_node.next != node_to_delete:
+        current_node = current_node.next
+    
+    if current_node.next is None:
+        return head
+
+    current_node.next = current_node.next.next
+    return head
+
+
 node1 = Node(11)
 node2 = Node(12)
 node3 = Node(13)
@@ -25,3 +40,6 @@ node4.next = node5
 
 print_LL(node1)
 print_LL(node3)
+
+node1 = delete_node(node1, node3)
+print_LL(node1)
