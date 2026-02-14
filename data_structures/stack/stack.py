@@ -20,17 +20,3 @@ class Stack:
 
     def size(self):
         return len(self.stack)
-
-
-my_stack = Stack()
-
-my_stack.push("A")
-my_stack.push("B")
-my_stack.push("C")
-
-print("Stack: ", my_stack.stack)
-print("Pop: ", my_stack.pop())
-print("Stack after Pop: ", my_stack.stack)
-print("Peek: ", my_stack.peek())
-print("isEmpty: ", my_stack.is_empty())
-print("Size: ", my_stack.size())
